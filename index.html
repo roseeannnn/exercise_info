@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+  box-sizing: border-box;
+}
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+[class*="col-"] {
+  float: right;
+  padding: 15px;
+}
+html {
+  font-family: "Arial", sans-serif;
+}
+.header {
+  background-color: #b16366;
+  color: #ffffff;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between; /
+  align-items: center;
+}
+.header img {
+  height: 80px;
+}
+.menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.menu li {
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #c98888;
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: 0.3s;
+}
+.menu li:hover {
+  background-color: #c98888;
+}
+.menu li.active {
+  background-color:#c98888;
+  font-weight: bold;
+}
+.aside {
+  background-color:#c98888;
+  padding: 15px;
+  color: #ffffff;
+  text-align: center;
+  font-size: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+.footer {
+  background-color: #c98888;
+  color: #ffffff;
+  text-align: center;
+  font-size: 16px;
+  padding: 10px;
+}
+[class*="col-"]{
+  width:100%;
+}
+@media only screen and (min-width: 768px) {
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Rose Ann's Info</h1>
+</div>
+
+<div class="row">
+  <div class="col-3 menu">
+    <ul>
+      <li onclick="showContent('home', this)" class="active">Home</li>
+      <li onclick="showContent('contact', this)">Contact</li>
+      <li onclick="showContent('about me', this)">About me</li>
+  
+    </ul>
+  </div>
+  <div class="col-6" id="content">
+    <h1>Home</h1>
+    <p>
+     Welcome to Rose Ann's Page!
+    </p>
+  </div>
+  
+      <div class="col-3 right">
+    <div class="aside">
+      <h2>HOBBY</h2>
+      <p>Dancing and Watching tiktok videos .</p>
+      <h2>FAVORITE SONG</h2>
+      <p>Nandito ako, How do I live, Sino nga ba siya.</p>
+      <h2>CRUSH</h2>
+      <p>Cypermoi.</p>
+    </div>
+  </div>
+</div>
+
+
+<script>
+function showContent(section, element) {
+  let items = document.querySelectorAll(".menu li");
+  items.forEach(li => li.classList.remove("active"));
+  element.classList.add("active");
+
+  let content = document.getElementById("content");
+
+  if (section === "home") {
+    content.innerHTML = `
+      <h1>Home</h1>
+      <p> Welcome to Rose Ann's Page!.</p>
+    `;
+  }
+  else if (section === "contact") {
+    content.innerHTML = `
+      <h1>Contact</h1>
+      <p>0987-6543-321</p>
+    `;
+  }
+  else if (section === "about me") {
+    content.innerHTML = `
+      <h1>About me</h1>
+      <p>hi, my name is Rose Ann E. Cabang, I'm 20 years old. My favorute food are adobong baboy, chicken joy,sinigang na baboy and paksiw na tilapia..</p>
+    `;
+  
+  }
+}
+</script>
+<div class="footer">
+  <p>Rose Ann cabang_071005.</p>
+</div>
+
+</body>
+</html>
